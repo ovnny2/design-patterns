@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  video-curator:
+    image: video-curator
+    container_name: video-curator
+    ports:
+      - "9999:9999"
+    restart: on-failure
+    networks:
+      dio-network:
+        ipv4_address: 172.20.0.2
+    depends_on:
+      - youtube-mongodb
+
+  youtube-mongodb:
+    image: youtube-mongodb
+    container_name: youtube-mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    ports:
+      - '27017'
+    restart: on-failure
+    networks:
+      dio-network:
+        ipv4_address: 172.20.0.3
+
+networks:
+  dio-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
