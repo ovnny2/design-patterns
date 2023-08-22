@@ -1,1 +1,21 @@
+server:
+  port: 9999
 
+spring:
+  data:
+    mongodb:
+      host: 172.21.0.3
+      port: 27017
+      database: youtube-mongodb
+      authentication-database: root
+      username: user1
+      password: user1
+      uri: mongodb://user1:user1@172.20.0.3:27017/youtube-mongodb
+
+logging.level.org.springframework:
+  hibernate: debug
+  oauth2: debug
+  security: debug
+  web: debug
+
+spring:web:log-request-details: true
