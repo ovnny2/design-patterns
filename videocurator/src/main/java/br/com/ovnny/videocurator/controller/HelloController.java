@@ -1,6 +1,5 @@
 package br.com.ovnny.videocurator.controller;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/hello")
-    ResponseEntity<?> sayhello() {
-        return ResponseEntity.ok("hello world");
+    public ResponseEntity<?> getYoutubeDetails() {
+        return ResponseEntity.ok("hello!");
     }
 }

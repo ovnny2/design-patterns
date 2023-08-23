@@ -1,7 +1,25 @@
 server:
   port: 9999
 
+logging.level.org.springframework:
+  hibernate: debug
+  oauth2: debug
+  security: debug
+  web: debug
+
 spring:
+  jpa:show-sql: true
+  web:log-request-details: true
+
+  profiles:
+    active: develop
+
+  security:
+    user:
+      name: user
+      password: user123
+      roles: USER
+
   data:
     mongodb:
       host: 172.21.0.3
@@ -11,11 +29,3 @@ spring:
       username: user1
       password: user1
       uri: mongodb://user1:user1@172.20.0.3:27017/youtube-mongodb
-
-logging.level.org.springframework:
-  hibernate: debug
-  oauth2: debug
-  security: debug
-  web: debug
-
-spring:web:log-request-details: true
