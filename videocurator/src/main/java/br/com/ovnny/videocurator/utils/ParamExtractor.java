@@ -14,7 +14,7 @@ public final class ParamExtractor {
         return INSTANCE;
     }
 
-    public static String extractVideoId(String url) {
+    public static String extractPlaylistId(String url) {
         return url.replaceAll(".*list=", "");
     }
 }

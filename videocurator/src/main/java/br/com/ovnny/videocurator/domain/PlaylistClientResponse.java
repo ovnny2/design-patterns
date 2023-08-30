@@ -1,10 +1,10 @@
-package br.com.ovnny.videocurator.domain.playlist;
+package br.com.ovnny.videocurator.domain;
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import br.com.ovnny.videocurator.domain.playlist.ContentDetails;
+import br.com.ovnny.videocurator.domain.playlist.PlaylistItem;
 
 import java.util.List;
 
-@Document
 public class PlaylistClientResponse {
     public String kind;
     public String etag;
