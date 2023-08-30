@@ -33,26 +33,26 @@ public class YoutubeClient {
         this.restTemplate = restTemplate;
     }
 
-    public PlaylistClientResponse fetchYoutubePlaylistItems(String playlistId) {
+    public PlaylistClientResponse fetchPlaylistItems(String playlistId) {
+        final UriComponentsBuilder url = clientRequestBuilder(playlistId, YOUTUBE_V3API_BASE_URL);
         HttpHeaders headers = new HttpHeaders();
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(YOUTUBE_V3API_BASE_URL)
-                .queryParam("part", "snippet,contentDetails")
-                .queryParam("maxResults", MAX_RESULTS)
-                .queryParam("playlistId", playlistId)
-                .queryParam("key", API_KEY);
-
-        String url = builder.toUriString();
-
         try {
-            var rawResponse = restTemplate.exchange(url, HttpMethod.GET, createHttpEntity(headers),
+            var rawResponse = restTemplate.exchange(url.toUriString(), HttpMethod.GET, createHttpEntity(headers),
                     ParameterizedTypeReference.forType(PlaylistClientResponse.class));
-
             return (PlaylistClientResponse) rawResponse.getBody();
 
         } catch (HttpServerErrorException | HttpClientErrorException exception) {
             throw new PlaylistClientException("Não é possível processar uma playlist privada.", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    private UriComponentsBuilder clientRequestBuilder(String id, String baseUrl) {
+        return UriComponentsBuilder.fromHttpUrl(baseUrl)
+                .queryParam("part", "snippet,contentDetails")
+                .queryParam("maxResults", MAX_RESULTS)
+                .queryParam("playlistId", id)
+                .queryParam("key", API_KEY);
     }
 
     private static HttpEntity<?> createHttpEntity(HttpHeaders headers) {

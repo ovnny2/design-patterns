@@ -1,5 +1,6 @@
-package br.com.ovnny.videocurator.domain.videosnipet;
+package br.com.ovnny.videocurator.domain;
 
+import br.com.ovnny.videocurator.domain.videosnipet.VideoSnipet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,6 +18,7 @@ public class PlaylistView {
         this.playlist = videoSnipets;
     }
 
+    @Deprecated
     public PlaylistView() {
     }
 

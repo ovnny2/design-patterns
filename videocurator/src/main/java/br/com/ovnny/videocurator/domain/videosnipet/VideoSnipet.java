@@ -4,10 +4,11 @@ import br.com.ovnny.videocurator.domain.playlist.Snipet;
 import br.com.ovnny.videocurator.domain.playlist.Thumbnail;
 import jakarta.validation.constraints.*;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-
+@Document
 public class VideoSnipet {
 
     @NotBlank
@@ -44,6 +45,10 @@ public class VideoSnipet {
 
     public int tries = 0;
 
+    @Deprecated
+    public VideoSnipet() {
+    }
+
     public VideoSnipet(Snipet snipet, SnipetState state) {
         this.videoId = snipet.getResourceId().getVideoId();
         this.title = snipet.getTitle();
@@ -54,7 +59,7 @@ public class VideoSnipet {
         this.channelId = snipet.getChannelId();
         this.videoOwnerChannelId = snipet.getVideoOwnerChannelId();
         this.channelTitle = snipet.getChannelTitle();
-        setState(state);
+        this.state = String.valueOf(state);
     }
 
     public String getVideoId() {
