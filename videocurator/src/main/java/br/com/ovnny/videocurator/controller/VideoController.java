@@ -25,7 +25,7 @@ public class VideoController {
     }
 
     @PostMapping("/playlists")
-    public ResponseEntity<PlaylistPreviewResponse> getPlaylistItems(@Valid @RequestBody PlaylistRequest request) {
+    public ResponseEntity<PlaylistPreviewResponse> getPlaylistItems(@RequestBody @Valid PlaylistRequest request) {
         var response = (PlaylistPreviewResponse) service.createPlaylist(request.getPlaylistUrl());
         URI path = URI.create("/v1/playlists/" + response.playlistId);
 
