@@ -29,3 +29,9 @@ spring:
       username: user1
       password: user1
       uri: mongodb://user1:user1@172.20.0.3:27017/youtube-mongodb
+
+clients:
+  youtube:
+    baseUrl: https://www.googleapis.com/youtube/v3/playlistItems?
+    maxResults: 25
+    key: {cipher}"youtubeApiKey"
