@@ -8,7 +8,7 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class PlaylistRequest {
 
-    @NotBlank @Size(min=16 , max=128)
+    @NotBlank @Size(max=128)
     @Pattern(regexp = "\\b[A-Za-z0-9._%+-]+@gmail\\.com\\b")
     String email;
 

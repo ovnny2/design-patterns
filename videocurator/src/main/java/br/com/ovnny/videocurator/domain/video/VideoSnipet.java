@@ -54,6 +54,34 @@ public class VideoSnipet {
     public VideoSnipet() {
     }
 
+    public VideoSnipet(
+            String id,
+            String channelTitle,
+            String videoOwnerChannelTitle,
+            String publishedAt,
+            String channelId,
+            String videoOwnerChannelId,
+            int position,
+            String state,
+            int tries,
+            String title,
+            String description,
+            Thumbnails thumbnails
+    ) {
+        this.id = id;
+        this.channelTitle = channelTitle;
+        this.videoOwnerChannelTitle = videoOwnerChannelTitle;
+        this.publishedAt = publishedAt;
+        this.channelId = channelId;
+        this.videoOwnerChannelId = videoOwnerChannelId;
+        this.position = position;
+        this.state = state;
+        this.tries = tries;
+        this.title = title;
+        this.description = description;
+        this.thumbnails = thumbnails;
+    }
+
     public VideoSnipet(Snipet snipet, State state) {
         this.id = snipet.getResourceId().getVideoId();
         this.channelTitle = snipet.getChannelTitle();
