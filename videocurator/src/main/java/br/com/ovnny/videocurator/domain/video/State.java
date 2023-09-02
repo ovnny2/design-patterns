@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.domain.videosnipet;
 
-public enum SnipetState {
+public enum State {
     NO_PROCESSED,
     PROCESSING,
     PROCESSED,

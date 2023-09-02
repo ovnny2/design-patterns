@@ -49,7 +49,7 @@ public class VideoSnipet {
     public VideoSnipet() {
     }
 
-    public VideoSnipet(Snipet snipet, SnipetState state) {
+    public VideoSnipet(Snipet snipet, State state) {
         this.videoId = snipet.getResourceId().getVideoId();
         this.title = snipet.getTitle();
         this.description = snipet.getDescription();
@@ -104,7 +104,7 @@ public class VideoSnipet {
         return state;
     }
 
-    public void setState(SnipetState state) {
+    public void setState(State state) {
         this.state = state.toString();
     }
 

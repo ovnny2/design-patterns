@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.domain;
 
-import br.com.ovnny.videocurator.domain.videosnipet.VideoSnipet;
+import br.com.ovnny.videocurator.domain.video.VideoSnipet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
