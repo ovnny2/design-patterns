@@ -1,7 +1,7 @@
 package br.com.ovnny.videocurator.controller;
 
 import br.com.ovnny.videocurator.domain.PlaylistRequest;
-import br.com.ovnny.videocurator.domain.PlaylistView;
+import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.service.VideoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class VideoController {
 
     @PostMapping("/playlists")
     public ResponseEntity<?> getPlaylistItems(@Valid @RequestBody PlaylistRequest request) {
-        var response = (PlaylistView) service.createPlaylist(request.getPlaylistUrl());
+        var response = (PlaylistPreviewResponse) service.createPlaylist(request.getPlaylistUrl());
         URI path = URI.create("/v1/playlists/" + response.playlistId);
 
         return ResponseEntity.created(path).body(response);

@@ -7,19 +7,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Document
-public class PlaylistView {
+public class PlaylistPreviewResponse {
 
     @Id
     public String playlistId;
     public List<VideoSnipet> playlist;
 
-    public PlaylistView(String playlistId, List<VideoSnipet> videoSnipets) {
+    public PlaylistPreviewResponse(String playlistId, List<VideoSnipet> videoSnipets) {
         this.playlistId = playlistId;
         this.playlist = videoSnipets;
     }
 
     @Deprecated
-    public PlaylistView() {
+    public PlaylistPreviewResponse() {
     }
 
     public String getPlaylistId() {

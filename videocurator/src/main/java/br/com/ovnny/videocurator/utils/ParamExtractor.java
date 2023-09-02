@@ -4,13 +4,10 @@ public final class ParamExtractor {
 
     private static ParamExtractor INSTANCE;
 
-    private ParamExtractor() {
-    }
+    private ParamExtractor() {  }
 
     private ParamExtractor getInstance() {
-        if (INSTANCE == null) {
-            ParamExtractor INSTANCE = new ParamExtractor();
-        }
+        if (INSTANCE == null) { ParamExtractor INSTANCE = new ParamExtractor(); }
         return INSTANCE;
     }
 

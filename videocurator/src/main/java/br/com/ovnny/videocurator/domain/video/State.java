@@ -1,7 +1,7 @@
-package br.com.ovnny.videocurator.domain.videosnipet;
+package br.com.ovnny.videocurator.domain.video;
 
 public enum State {
-    NO_PROCESSED,
+    NOT_PROCESSED,
     PROCESSING,
     PROCESSED,
     FAILED,

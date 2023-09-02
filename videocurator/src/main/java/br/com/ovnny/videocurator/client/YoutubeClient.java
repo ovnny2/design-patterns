@@ -34,7 +34,7 @@ public class YoutubeClient {
     }
 
     public PlaylistClientResponse fetchPlaylistItems(String playlistId) {
-        final UriComponentsBuilder url = clientRequestBuilder(playlistId, YOUTUBE_V3API_BASE_URL);
+        final UriComponentsBuilder url = buildClientRequest(playlistId, YOUTUBE_V3API_BASE_URL);
         HttpHeaders headers = new HttpHeaders();
 
         try {
@@ -47,7 +47,7 @@ public class YoutubeClient {
         }
     }
 
-    private UriComponentsBuilder clientRequestBuilder(String id, String baseUrl) {
+    private UriComponentsBuilder buildClientRequest(String id, String baseUrl) {
         return UriComponentsBuilder.fromHttpUrl(baseUrl)
                 .queryParam("part", "snippet,contentDetails")
                 .queryParam("maxResults", MAX_RESULTS)
