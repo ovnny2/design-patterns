@@ -33,9 +33,8 @@ public class VideoService {
 
         Optional<PlaylistPreviewResponse> playlistView = repository.findById(playlistId);
 
-        if (playlistView.isPresent()) {
-            throw new PlaylistException("A playlist já existe", HttpStatus.BAD_REQUEST);
-        }
+        if (playlistView.isPresent()) throw
+                new PlaylistException("A playlist já existe", HttpStatus.BAD_REQUEST);
 
         List<VideoSnipet> snipets = youtubeClient.fetchPlaylistItems(playlistId).getItems().stream()
                 .map(item -> new VideoSnipet(item.getSnipet(), State.NOT_PROCESSED))

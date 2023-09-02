@@ -4,6 +4,7 @@ import br.com.ovnny.videocurator.exception.PlaylistClientException;
 import br.com.ovnny.videocurator.exception.PlaylistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -16,16 +17,21 @@ public class VideoControllerAdvice {
         return ResponseEntity.badRequest().body(response);
     }
 
-    @ExceptionHandler({ IllegalArgumentException.class })
-    public ResponseEntity<?> handleIllegalArgumentException(PlaylistException exception) {
+    @ExceptionHandler({ PlaylistException.class })
+    public ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException exception) {
 
         var response = new ErrorAdvise(
                 exception.getMessage(),
-                HttpStatus.BAD_REQUEST.toString(),
+                HttpStatus.BAD_REQUEST.getReasonPhrase(),
                 "400",
                 this.getClass().getSimpleName()
         );
 
         return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler({ MethodArgumentNotValidException.class })
+    public ResponseEntity<?> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
+        return ResponseEntity.badRequest().body(exception.getBody());
     }
 }
