@@ -83,7 +83,7 @@ class VideoControllerTest {
     @DisplayName("should return an ConstraintViolationImpl for any given invalid playlistUrl")
     void testGetPlaylistItemsInvalidPlaylistUrl() {
 
-        var invalidRequest = new PlaylistRequest("example@gmail.com", null);
+        var invalidRequest = new PlaylistRequest("example@gmail.com", "www.youtube.com/playlist?Invalid=PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q");
 
         Set<ConstraintViolation<PlaylistRequest>> violations = validator.validate(invalidRequest);
 
@@ -95,7 +95,7 @@ class VideoControllerTest {
     @DisplayName("should return an ConstraintViolationImpl for any given invalid PlaylistRequest")
     void testGetPlaylistItemsInvalidRequestParams() {
 
-        var invalidRequest = new PlaylistRequest("invalidEmailFormat.com", "");
+        var invalidRequest = new PlaylistRequest("invalidEmailFormat.com", null);
 
         Set<ConstraintViolation<PlaylistRequest>> violations = validator.validate(invalidRequest);
 
@@ -114,6 +114,6 @@ class VideoControllerTest {
         Set<ConstraintViolation<PlaylistRequest>> violations = validator.validate(invalidRequest);
 
         assertFalse(violations.isEmpty());
-        assertEquals(3, violations.size());
+        assertEquals(4, violations.size());
     }
 }
