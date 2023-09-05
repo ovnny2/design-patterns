@@ -12,7 +12,7 @@
 
 - [YouTube API Docs](https://developers.google.com/youtube/v3/getting-started).
 - [Google Cloud Console](https://console.cloud.google.com/).
-___
+
 
 <a id="EntendendoAAplicacao"></a>
 ## Tutorial - Entendendo a aplicação

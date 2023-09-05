@@ -1,6 +1,6 @@
 # Bootcamp Santander - DIO
-___Série de projetos destinados à resolução de problemas e laboratórios do Bootcamp do Santander na Digital Innovation One___
-___
+_Série de projetos destinados à resolução de problemas e laboratórios do __Bootcamp do Santander__ na __Digital Innovation One___
+
 
 ## MVP Definition:
 
@@ -23,7 +23,7 @@ Os dados coletados serão persistidos em um banco de dados MongoDB e num sistema
 ### Fase 2
 
 Um serviço utilizará um LLM para traduzir transcrições e criar metadados sobre os videos.
-___
+
 ## Todo List: Integração à API do YouTube:
 
 ### 1. **Registre um Projeto na Google Cloud Console:**
@@ -59,7 +59,7 @@ ___
 
          Java 17 |  Spring 3 |  Gradle 8.3 |  Yaml  |  JUnit 5 |  Mockito  |  AssertJ  |  
          Docker  |  MongoDb 6.0 |   Redis   |  Python  |  LLM  | ChatGPT |  JavaScript |   
-___
+
 
 ## Informações Gerais:
 
@@ -71,9 +71,8 @@ ___
 - [OpenAPI 3 - Docs](http://localhost:9999/swagger-ui/index.html).
 - [Documentação - YouTube V3 API](https://developers.google.com/youtube/v3/getting-started).
 - [Google Cloud Console](https://console.cloud.google.com/).
-- []().
 
-___
+
 ### Ao longo de todo o processo:
 
 **Testes e Validação:**
@@ -84,7 +83,7 @@ ___
 > - Documente todo o processo de integração da API, configurações do projeto, fluxo de dados, etc.
 > - Analise possíveis melhorias no código, performance e usabilidade.
 
-___
+
 ## Contato
 - > __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
 - > __[Meu Github](https://github.com/ovnny2)__.
