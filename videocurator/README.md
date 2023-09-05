@@ -1,3 +1,4 @@
+<a id="Inicio"></a>
 # Video Curator Application
 
 ## Index
@@ -5,13 +6,15 @@
 - [Tutorial - Obtendo a Chave de API do Youtube](#ObtendoAChaveDeApiDoYoutube)
 - [Tutorial - Fazendo o build com Docker](#FazendoOBuildComDocker)
 - [Tutorial - Fazendo deploy localmente](#FazendoDeployLocalmente)
+- [Tutorial - Usando a API](#UsandoAApi)
+- [Swagger](#Swagger)
 
 ## Documentação auxiliar
-> - [Swagger (projeto rodando)](http://localhost:9999/swagger-ui/indexhtml)
-> - [Repositório Github](https://github.com/ovnny2/design-patterns)
+- [Swagger (projeto rodando)](http://localhost:9999/swagger-ui/indexhtml)
+- [Repositório Github](https://github.com/ovnny2/design-patterns)
 
-> - [YouTube API Docs](https://developers.google.com/youtube/v3/getting-started)
-> - [Google Cloud Console](https://console.cloud.google.com/)
+- [YouTube API Docs](https://developers.google.com/youtube/v3/getting-started)
+- [Google Cloud Console](https://console.cloud.google.com/)
 
 
 <a id="EntendendoAAplicacao"></a>
@@ -145,3 +148,132 @@ Caso você deseje ver os logs da aplicação Spring, digite:
 
 Você deve ver algo parecido com:
 ![img.png](src/main/resources/static/img/console-log-spring.png)
+
+<a id="UsandoAApi"></a>
+## Usando a API
+
+Se você chegou até aqui, parabéns.
+Agora podemos testar a nossa aplicação fazendo uma requisição para o endpoint ``/v1/playlists`` na classe **VideoController**
+
+Vá no terminal caso use Linux e digite o comando Curl abaixo:
+
+    curl --location 'http://localhost:9999/v1/playlists' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "email": "seuemail@gmail.com",
+        "playlistUrl": "https://www.youtube.com/playlist?list=PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q"
+    }'
+
+O link declarado no parâmetro playlistUrl representa uma playlist pública no Youtube. Ela pode ser de qualquer canal 
+desde que seus status esteja público, caso contrário, a aplicação vai gerar um erro 400 BAD_REQUEST.
+
+caso corra tudo bem, você vai receber a seguinte resposta 201 CREATED:
+
+### Json Response Created OK
+
+    {
+        "playlistId": "PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q",
+        "playlist": [
+            {
+                "id": "gB1F9G0JXOo",
+                "channelTitle": "Vinícius Ferreira",
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                "publishedAt": "2021-10-15T17:42:03Z",
+                "channelId": "UCRXbk8D_VBfp5EHRqObG0Zw",
+                "videoOwnerChannelId": "UC8butISFwT-Wl7EV0hUK0BQ",
+                "position": 0,
+                "state": "NOT_PROCESSED",
+                "tries": 0,
+                "title": "Learn Unity - Beginner's Game Development Tutorial",
+                "description": "Learn to develop games using the Unity game engine in this complete course for beginners. 
+                                This course will get you up and running with Unity. Free game assets included!\n\n✏️ 
+                                Course developed by Fahir from Awesome Tuts. 
+                                Check out his channel: https://www.youtube.com/channel/UC5c-DuzPdH9iaWYdI0v0uzw\n\n⭐️ 
+                                Resources ⭐️\n(To download assets you may have to right click the link, copy it, and 
+                                then paste it into a new tab.)\n🔗 
+                                Unity Introduction Project Assets: 
+                                http://cdn.freecodecamp.org/youtube/unity-course/Unity%20Introduction%20Project%20Assets.zip\n🔗 
+                                Unity Introduction Project: http://cdn.freecodecamp.org/youtube/unity-course/Unity%20Introduction%20Project.zip\n🔗 
+                                Monster Chase Game Assets: http://cdn.freecodecamp.org/youtube/unity-course/Monster%20Chase%20Assets.zip\n🔗 
+                                Complete Monster Chase Game: http://cdn.freecodecamp.org/youtube/unity-course/Monster%20Chase.zip\n\n⭐️ 
+                                Course Contents ⭐️\n⌨️ (0:00:00)​ Introduction\n⌨️ (0:00:48)​ Downloading Unity And Unity Hub\n⌨️ (0:05:20)​ 
+                                About Unity Versions And Creating A New Project\n⌨️ (0:09:07)​ Introduction To Unity's Interface\n⌨️ (0:22:10)​ 
+                                Starting With Unity's Basics\n⌨️ (0:29:47)​ Rigid Bodies And Colliders\n⌨️ (0:38:19)​ 
+                                Audio Source And UI Elements\n⌨️ (0:45:47)​ Moving Our Character With Code\n⌨️ (0:54:22)
+                                ​ Introduction To Variables\n⌨️ (1:06:14)​ Operations With Variables\n⌨️ (1:19:01)
+                                ​ Functions\n⌨️ (1:34:22)​ Conditional Statements\n⌨️ (1:49:29)​ Loops
+                                \n⌨️ (1:58:41)​ Coroutines\n⌨️ (2:04:39)​ Classes\n⌨️ (2:16:46)
+                                ​ Accessibility Modifiers(Data Encapsulation)\n⌨️ (2:26:54)​ Inheritance\n⌨️ 
+                                (2:43:35)​ Getting Components\n⌨️ (2:52:32)​ Monster Chase Game Intro\n⌨️ 
+                                (2:53:55)​ Importing Assets\n⌨️ (3:02:22)​ Creating Player Animations\n⌨️ 
+                                (3:17:36)​ Sorting Layers And Order In Layer\n⌨️ (3:24:04)​ Creating The Game Background\n⌨️ 
+                                (3:33:03)​ Player Movement\n⌨️ (3:50:26)​ Animating The Player Via Code\n⌨️ 
+                                (4:03:34)​ Player Jumping\n⌨️ (4:19:03)​ Camera Follow Player\n⌨️ (4:30:42)​ Enemy Animations\n⌨️ 
+                                (4:39:40)​ Enemy Script\n⌨️ (4:51:15)​ Enemy Spawner\n⌨️ (5:15:15)​ Enemy Collision\n⌨️ 
+                                (5:31:55)​ The Collector Script\n⌨️ (5:40:32)​ Unity's UI System\n⌨️ (5:53:06)​ Creating Main Menu\n⌨️ 
+                                (6:02:34)​ Navigating Between Scenes\n⌨️ (6:13:04)​ Selecting A Character\n⌨️ 
+                                (6:20:50)​ Static Variables\n⌨️ (6:30:23)​ Singleton Pattern\n⌨️ (6:41:35)​ Events And Delegates\n⌨️
+                                (7:13:11)​ Instantiating The Selected Character\n⌨️ (7:17:59)​ Finishing Our Game\n\n🎉 Thanks to our 
+                                Champion supporters:\n👾 Otis Morgan\n👾 DeezMaster\n👾 Katia Moran \n\n--\n\n
+                                Learn to code for free and get a developer job: https://www.freecodecamp.org\n\n
+                                Read hundreds of articles on programming: https://freecodecamp.org/news",
+                "thumbnails": {
+                    "defaultThumbnail": null,
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/gB1F9G0JXOo/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/gB1F9G0JXOo/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/gB1F9G0JXOo/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/gB1F9G0JXOo/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                }
+            },
+            {
+                "id": "4HoJIgyclZ4",
+                "channelTitle": "Vinícius Ferreira",
+                "videoOwnerChannelTitle": "freeCodeCamp.org",
+                ...
+            }
+        ...
+        }
+    ...
+    }
+
+
+A playlist do exemplo acima faz parte das minhas playlists publicas do Youtube.
+
+![img.png](src/main/resources/static/img/playlist-url.png)
+
+- **Playlist URL**: https://www.youtube.com/playlist?list=PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q
+- **Playlist ID**: PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q
+
+De agora em diante você poderá fazer uma requisição para nossa API usando qualquer link de playlist publica do Youtube e 
+receber um Json com todas as informações relevantes dos videos.
+A resposta é limitada à 25 videos por playlist.
+
+<a id="Swagger"></a>
+## Open API Specification e Swagger
+Com nossa aplicação rodando podemos acessar o link do Swagger e ver informações relevantes sobre o serviço, métodos 
+HTTP válidos, request Objects, response Objects, respostas com erros ou exceções, descrições detalhadas e mais.
+
+Basta acessar a [documentação Swagger da aplicação](http://localhost:9999/swagger-ui/index.html)
+
+<br><br>
+
+**[<< início](#Inicio)**
+
+___
