@@ -1,18 +1,17 @@
 # Video Curator Application
 
 ## Index
-> - [Entendendo a aplicação](#EntendendoAAplicacao).
-> - [Tutorial - Obtendo a Chave de API do Youtube](#ObtendoAChaveDeApiDoYoutube).
-> - [Tutorial - Fazendo o build com Docker](#FazendoOBuildComDocker).
-> - [Tutorial - Fazendo deploy localmente](#FazendoDeployLocalmente).
+- [Getting Started](#EntendendoAAplicacao)
+- [Tutorial - Obtendo a Chave de API do Youtube](#ObtendoAChaveDeApiDoYoutube)
+- [Tutorial - Fazendo o build com Docker](#FazendoOBuildComDocker)
+- [Tutorial - Fazendo deploy localmente](#FazendoDeployLocalmente)
 
+## Documentação auxiliar
+> - [Swagger (projeto rodando)](http://localhost:9999/swagger-ui/indexhtml)
+> - [Repositório Github](https://github.com/ovnny2/design-patterns)
 
->- [Swagger (projeto rodando)](http://localhost:9999/swagger-ui/index.html).
->- [Repositório Github](https://github.com/ovnny2/design-patterns).
-
-
->- [YouTube API Docs](https://developers.google.com/youtube/v3/getting-started).
->- [Google Cloud Console](https://console.cloud.google.com/).
+> - [YouTube API Docs](https://developers.google.com/youtube/v3/getting-started)
+> - [Google Cloud Console](https://console.cloud.google.com/)
 
 
 <a id="EntendendoAAplicacao"></a>
@@ -88,5 +87,61 @@ projeto.
 <a id="FazendoOBuildComDocker"></a>
 ## Tutorial - Fazendo o Build com Docker
 
+### Buildando Imagens Docker
+Agora que temos a chave de acesso à API do Youtube, a Youtube Data API V3, conseguiremos fazer o build do projeto.<br>
+Acompanhando o os princípios do Twelve Factor App, iremos trabalhar com containers. Especificamente com Docker Container.
+
+- Vá para a pasta root do projeto em ``design-patterns``
+- Caso tenha o Docker e Docker Compose já instalados, digite no terminal
+
+        docker build -t video-curator ./videocurator/.; \
+        docker build -t youtube-mongodb -f ./videocurator/support/mongo/Dockerfile_youtubedb ./videocurator/.       
+
+Caso não tenha... 
+- [vá na documentação e instale o Docker](https://docs.docker.com/engine/install/)
+- [E o Docker Compose](https://docs.docker.com/compose/install/)
+
+### Deploy com Docker Compose
+Em caso do passo anterior for completado com sucesso, você poderá dar o comando ``docker images ls`` e verificar as duas 
+imagens do projeto.
+
+        REPOSITORY        TAG       IMAGE ID       CREATED       SIZE
+        video-curator     latest    1881d3df4ac8   5 hours ago   361MB
+        youtube-mongodb   latest    59203bd63071   3 days ago    669MB
+
+
 <a id="FazendoDeployLocalmente"></a>
 ## Tutorial - Rodando a aplicação localmente
+
+### Docker Compose Up
+Agora que temos nossas imagens Docker e nossa chave de API, vamos fazer o deploy no ambiente local.<br>
+Vá até onde o arquivo docker-compose.yml está e digite no terminal:
+
+        docker-compose up -d --remove-orphans
+
+Pra verificar se seus containeres estão de pé, basta digitar no terminal:
+
+        docker ps
+Você deve observar informações como essas abaixo:
+
+        CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS         PORTS                                           NAME        
+        8463524fe025   video-curator     "java -jar /app/app.…"   6 seconds ago   Up 5 seconds   0.0.0.0:9999->9999/tcp, :::9999->9999/tcp       video-curato
+        946021b9f5c1   youtube-mongodb   "docker-entrypoint.s…"   6 seconds ago   Up 5 seconds   0.0.0.0:32771->27017/tcp, :::32771->27017/tcp   youtube-mongod
+
+
+### Observando o estado das nossas aplicações
+
+Por enquanto, só video-curator (Aplicação Spring) e youtube-mongodb (NoSQL Database Movido a Documentos Super estruturados).
+Para observar o estado das suas aplicações rodando em conteineres, vá ao terminal e digite:
+
+        docker ps
+        docker ps -a
+        docker logs <nome-do-container> --follow
+        docker-compose logs
+
+Caso você deseje ver os logs da aplicação Spring, digite:
+
+        docker logs videocurator --follow
+
+Você deve ver algo parecido com:
+![img.png](src/main/resources/static/img/console-log-spring.png)
