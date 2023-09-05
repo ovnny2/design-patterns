@@ -1,12 +1,30 @@
-# design-patterns
-Santander Bootcamp Lab Project at Digital Innovation One aimed at exploring design patterns.
+# Bootcamp Santander - DIO
+_Série de projetos destinados à resolução de problemas e laboratórios do Bootcamp do Santander na Digital Innovation One_
+___
+
+## Informações Gerais:
+
+- [Repositório Github](https://github.com/ovnny2/design-patterns).
+- [Tutorial - Entendendo a aplicação](#EntendendoADocumentação).
+- [Tutorial - Obtendo a Chave de API do Youtube](#ObtendoAChaveDeApiDoYoutube).
+- [Tutorial - Fazendo o build com Docker](#FazendoBuildComDocker).
+- [Tutorial - Fazendo building da aplicação](#FazendoBuildingDaAplicacao).
+- [OpenAPI 3 - Docs](http://localhost:9999/swagger-ui/index.html).
+- [Documentação - YouTube V3 API](https://developers.google.com/youtube/v3/getting-started).
+- [Google Cloud Console](https://console.cloud.google.com/).
+- []().
+
+___
+## Contato
+- > __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
+- > __[Meu Github](https://github.com/ovnny2)__.
+- > __viniciusricardo.ferrera@gmail.com__<br>
 
 
 ## MVP Definition:
 
 Um serviço de curadoria de videos do youtube onde usuários fornecerão um link ou playlist ID de uma lista proprietária de favoritos.<br>
 Os resultados serão apresentados ao usuário em forma de Cards no Frontend, incluindo um resumo ou review do conteúdo do(s) vídeo(s).<br>
-> Lembre-se de sempre consultar a [documentação oficial da API do YouTube](https://developers.google.com/youtube/registering_an_application)
 
 ### Fase 1
 O sistema deve integrar-se à API do YouTube para buscar os seguintes dados de cada vídeo na lista:
@@ -67,9 +85,9 @@ ___
 ### Ao longo de todo o processo:
 
 **Testes e Validação:**
-- Realize testes rigorosos para garantir que os dados estão sendo coletados e persistidos corretamente.
-- Teste também a geração de Cards no Frontend.
+> - Realize testes rigorosos para garantir que os dados estão sendo coletados e persistidos corretamente.
+> - Teste também a geração de Cards no Frontend.
 
 **Documentação e Melhorias:**
-- Documente todo o processo de integração da API, configurações do projeto, fluxo de dados, etc.
-- Analise possíveis melhorias no código, performance e usabilidade.
+> - Documente todo o processo de integração da API, configurações do projeto, fluxo de dados, etc.
+> - Analise possíveis melhorias no código, performance e usabilidade.
