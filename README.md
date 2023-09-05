@@ -1,5 +1,5 @@
 # Bootcamp Santander - DIO
-_Série de projetos destinados à resolução de problemas e laboratórios do Bootcamp do Santander na Digital Innovation One_
+___Série de projetos destinados à resolução de problemas e laboratórios do Bootcamp do Santander na Digital Innovation One___
 ___
 
 ## Informações Gerais:
@@ -15,12 +15,6 @@ ___
 - []().
 
 ___
-## Contato
-- > __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
-- > __[Meu Github](https://github.com/ovnny2)__.
-- > __viniciusricardo.ferrera@gmail.com__<br>
-
-
 ## MVP Definition:
 
 Um serviço de curadoria de videos do youtube onde usuários fornecerão um link ou playlist ID de uma lista proprietária de favoritos.<br>
@@ -91,3 +85,9 @@ ___
 **Documentação e Melhorias:**
 > - Documente todo o processo de integração da API, configurações do projeto, fluxo de dados, etc.
 > - Analise possíveis melhorias no código, performance e usabilidade.
+
+___
+## Contato
+- > __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
+- > __[Meu Github](https://github.com/ovnny2)__.
+- > __viniciusricardo.ferrera@gmail.com__<br>
