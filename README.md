@@ -85,6 +85,6 @@ Um serviço utilizará um LLM para traduzir transcrições e criar metadados sob
 
 
 ## Contato
-- > __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
-- > __[Meu Github](https://github.com/ovnny2)__.
-- > __viniciusricardo.ferrera@gmail.com__<br>
+> __[Meu LinkedIn](https://linkedin.com/in/vinicius-ricardo).__<br>
+> __[Meu Github](https://github.com/ovnny2)__.<br>
+> __viniciusricardo.ferrera@gmail.com__<br>
