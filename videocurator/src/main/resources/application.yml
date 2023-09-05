@@ -34,4 +34,4 @@ clients:
   youtube:
     baseUrl: https://www.googleapis.com/youtube/v3/playlistItems?
     maxResults: 25
-    key: {cipher}"youtubeApiKey"
+    key: ${YOUTUBE_API_KEY}
