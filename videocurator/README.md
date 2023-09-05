@@ -272,6 +272,8 @@ HTTP válidos, request Objects, response Objects, respostas com erros ou exceç�
 
 Basta acessar a [documentação Swagger da aplicação](http://localhost:9999/swagger-ui/index.html)
 
+![img.png](src/main/resources/static/img/swagger.png)
+
 <br><br>
 
 **[<< início](#Inicio)**
