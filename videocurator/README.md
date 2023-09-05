@@ -270,9 +270,10 @@ A resposta é limitada à 25 videos por playlist.
 Com nossa aplicação rodando podemos acessar o link do Swagger e ver informações relevantes sobre o serviço, métodos 
 HTTP válidos, request Objects, response Objects, respostas com erros ou exceções, descrições detalhadas e mais.
 
-Basta acessar a [documentação Swagger da aplicação](http://localhost:9999/swagger-ui/indexhtml)
+Basta acessar a [documentação Swagger da aplicação](http://localhost:9999/swagger-ui/index.html)
 
 <br><br>
 
 **[<< início](#Inicio)**
+
 ___
