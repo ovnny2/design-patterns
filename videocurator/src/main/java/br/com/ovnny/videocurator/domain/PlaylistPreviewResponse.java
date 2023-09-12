@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.domain;
 
-import br.com.ovnny.videocurator.domain.video.VideoSnipet;
+import br.com.ovnny.videocurator.domain.video.VideoSnippet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,11 +11,11 @@ public class PlaylistPreviewResponse {
 
     @Id
     public String playlistId;
-    public List<VideoSnipet> playlist;
+    public List<VideoSnippet> playlist;
 
-    public PlaylistPreviewResponse(String playlistId, List<VideoSnipet> videoSnipets) {
+    public PlaylistPreviewResponse(String playlistId, List<VideoSnippet> videoSnippets) {
         this.playlistId = playlistId;
-        this.playlist = videoSnipets;
+        this.playlist = videoSnippets;
     }
 
     @Deprecated
@@ -26,7 +26,7 @@ public class PlaylistPreviewResponse {
         return playlistId;
     }
 
-    public List<VideoSnipet> getPlaylist() {
+    public List<VideoSnippet> getPlaylist() {
         return playlist;
     }
 }

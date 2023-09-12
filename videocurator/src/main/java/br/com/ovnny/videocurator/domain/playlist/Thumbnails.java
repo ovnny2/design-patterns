@@ -1,6 +1,12 @@
 package br.com.ovnny.videocurator.domain.playlist;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties
 public class Thumbnails {
+
+    @JsonProperty(value = "default")
     public Thumbnail defaultThumbnail;
     public Thumbnail medium;
     public Thumbnail high;

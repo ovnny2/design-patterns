@@ -3,7 +3,7 @@ package br.com.ovnny.videocurator.controller;
 import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.domain.PlaylistRequest;
 import br.com.ovnny.videocurator.domain.playlist.Thumbnails;
-import br.com.ovnny.videocurator.domain.video.VideoSnipet;
+import br.com.ovnny.videocurator.domain.video.VideoSnippet;
 import br.com.ovnny.videocurator.service.VideoService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -41,7 +41,7 @@ class VideoControllerTest {
     void testGetPlaylistItemsValidRequest() {
         var validRequest = new PlaylistRequest("test@gmail.com", anyString());
 
-        var videoSnipet = new VideoSnipet(
+        var videoSnippet = new VideoSnippet(
                 "123",
                 "test",
                 "Test Channel",
@@ -56,15 +56,15 @@ class VideoControllerTest {
                 new Thumbnails()
         );
 
-        var mockResponse = new PlaylistPreviewResponse(videoSnipet.id, List.of(videoSnipet));
+        var mockResponse = new PlaylistPreviewResponse(videoSnippet.id, List.of(videoSnippet));
 
         when(videoService.createPlaylist(validRequest.getPlaylistUrl())).thenReturn(mockResponse);
 
-        var expectedResult = videoController.getPlaylistItems(validRequest);
+        var expectedResult = videoController.createPlaylist(validRequest);
 
         assertEquals(mockResponse, expectedResult.getBody());
         assertEquals(HttpStatus.CREATED, expectedResult.getStatusCode());
-        assertEquals(URI.create("/v1/playlists/" + videoSnipet.getId()), expectedResult.getHeaders().getLocation());
+        assertEquals(URI.create("/v1/playlists/" + videoSnippet.getId()), expectedResult.getHeaders().getLocation());
     }
 
     @Test
