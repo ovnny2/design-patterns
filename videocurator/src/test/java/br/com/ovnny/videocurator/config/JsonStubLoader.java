@@ -1,6 +1,8 @@
 package br.com.ovnny.videocurator.config;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationConfig;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +19,8 @@ public class JsonStubLoader<T> {
 
     public T load(String filePath) throws IOException {
         InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(filePath);
+
+        objectMapper.configure(JsonParser.Feature.IGNORE_UNDEFINED, true);
 
         if (resourceAsStream == null) {
             throw new FileNotFoundException("File not found: " + filePath);

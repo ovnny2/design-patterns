@@ -1,14 +1,20 @@
 package br.com.ovnny.videocurator.domain.playlist;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties
 public class Thumbnails {
-    public Thumbnail default1;
+
+    @JsonProperty(value = "default")
+    public Thumbnail defaultThumbnail;
     public Thumbnail medium;
     public Thumbnail high;
     public Thumbnail standard;
     public Thumbnail maxres;
 
-    public Thumbnail getDefault1() {
-        return default1;
+    public Thumbnail getDefaultThumbnail() {
+        return defaultThumbnail;
     }
 
     public Thumbnail getMedium() {
@@ -27,8 +33,8 @@ public class Thumbnails {
         return maxres;
     }
 
-    private void setDefault1(Thumbnail default1) {
-        this.default1 = default1;
+    private void setDefaultThumbnail(Thumbnail defaultThumbnail) {
+        this.defaultThumbnail = defaultThumbnail;
     }
 
     private void setMedium(Thumbnail medium) {

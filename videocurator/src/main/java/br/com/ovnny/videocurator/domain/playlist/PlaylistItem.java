@@ -4,7 +4,8 @@ public class PlaylistItem {
     public String kind;
     public String etag;
     public String id;
-    public Snipet snippet;
+    public Snippet snippet;
+    public ContentDetails contentDetails;
 
     public String getKind() {
         return kind;
@@ -18,8 +19,12 @@ public class PlaylistItem {
         return id;
     }
 
-    public Snipet getSnipet() {
+    public Snippet getSnippet() {
         return snippet;
+    }
+
+    public ContentDetails getContentDetails() {
+        return contentDetails;
     }
 
     private void setKind(String kind) {
@@ -34,7 +39,11 @@ public class PlaylistItem {
         this.id = id;
     }
 
-    private void setSnipet(Snipet snippet) {
+    private void setSnippet(Snippet snippet) {
         this.snippet = snippet;
+    }
+
+    public void setContentDetails(ContentDetails contentDetails) {
+        this.contentDetails = contentDetails;
     }
 }

@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.domain;
 
-import br.com.ovnny.videocurator.domain.playlist.ContentDetails;
+import br.com.ovnny.videocurator.domain.playlist.PageInfo;
 import br.com.ovnny.videocurator.domain.playlist.PlaylistItem;
 
 import java.util.List;
@@ -10,7 +10,7 @@ public class PlaylistClientResponse {
     public String etag;
     public String nextPageToken;
     public List<PlaylistItem> items;
-    public ContentDetails contentDetails;
+    public PageInfo pageInfo;
 
     public String getKind() {
         return kind;
@@ -28,23 +28,7 @@ public class PlaylistClientResponse {
         return items;
     }
 
-    public ContentDetails getContentDetails() {
-        return contentDetails;
-    }
-
-    private void setKind(String kind) {
-        this.kind = kind;
-    }
-
-    private void setEtag(String etag) {
-        this.etag = etag;
-    }
-
-    private void setItems(List<PlaylistItem> items) {
-        this.items = items;
-    }
-
-    private void setContentDetails(ContentDetails contentDetails) {
-        this.contentDetails = contentDetails;
+    public PageInfo getPageInfo() {
+        return pageInfo;
     }
 }

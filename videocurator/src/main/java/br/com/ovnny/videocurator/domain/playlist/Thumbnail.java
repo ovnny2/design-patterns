@@ -1,5 +1,8 @@
 package br.com.ovnny.videocurator.domain.playlist;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties
 public class Thumbnail {
     public String url;
     public int width;

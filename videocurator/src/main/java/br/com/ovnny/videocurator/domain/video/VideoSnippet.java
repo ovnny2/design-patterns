@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.domain.video;
 
-import br.com.ovnny.videocurator.domain.playlist.Snipet;
+import br.com.ovnny.videocurator.domain.playlist.Snippet;
 import br.com.ovnny.videocurator.domain.playlist.Thumbnails;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class VideoSnipet {
+public class VideoSnippet {
 
     @Id
     public String id;
@@ -51,10 +51,10 @@ public class VideoSnipet {
 
 
     @Deprecated
-    public VideoSnipet() {
+    public VideoSnippet() {
     }
 
-    public VideoSnipet(
+    public VideoSnippet(
             String id,
             String channelTitle,
             String videoOwnerChannelTitle,
@@ -82,73 +82,113 @@ public class VideoSnipet {
         this.thumbnails = thumbnails;
     }
 
-    public VideoSnipet(Snipet snipet, State state) {
-        this.id = snipet.getResourceId().getVideoId();
-        this.channelTitle = snipet.getChannelTitle();
-        this.videoOwnerChannelTitle = snipet.getVideoOwnerChannelTitle();
-        this.publishedAt = snipet.getPublishedAt();
-        this.channelId = snipet.getChannelId();
-        this.videoOwnerChannelId = snipet.getVideoOwnerChannelId();
-        this.position = snipet.getPosition();
+    public VideoSnippet(Snippet snippet, State state) {
+        this.id = snippet.getResourceId().getVideoId();
+        this.channelTitle = snippet.getChannelTitle();
+        this.videoOwnerChannelTitle = snippet.getVideoOwnerChannelTitle();
+        this.publishedAt = snippet.getPublishedAt();
+        this.channelId = snippet.getChannelId();
+        this.videoOwnerChannelId = snippet.getVideoOwnerChannelId();
+        this.position = snippet.getPosition();
         this.state = String.valueOf(state);
-        this.title = snipet.getTitle();
-        this.description = snipet.getDescription();
-        this.thumbnails = snipet.getThumbnails();
+        this.title = snippet.getTitle();
+        this.description = snippet.getDescription();
+        this.thumbnails = snippet.getThumbnails();
     }
 
     public String getId() {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getChannelTitle() {
         return channelTitle;
+    }
+
+    public void setChannelTitle(String channelTitle) {
+        this.channelTitle = channelTitle;
     }
 
     public String getVideoOwnerChannelTitle() {
         return videoOwnerChannelTitle;
     }
 
+    public void setVideoOwnerChannelTitle(String videoOwnerChannelTitle) {
+        this.videoOwnerChannelTitle = videoOwnerChannelTitle;
+    }
+
     public String getPublishedAt() {
         return publishedAt;
+    }
+
+    public void setPublishedAt(String publishedAt) {
+        this.publishedAt = publishedAt;
     }
 
     public String getChannelId() {
         return channelId;
     }
 
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
+    }
+
     public String getVideoOwnerChannelId() {
         return videoOwnerChannelId;
+    }
+
+    public void setVideoOwnerChannelId(String videoOwnerChannelId) {
+        this.videoOwnerChannelId = videoOwnerChannelId;
     }
 
     public int getPosition() {
         return position;
     }
 
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     public String getState() {
         return state;
-    }
-
-    public int getTries() {
-        return tries;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Thumbnails getThumbnails() {
-        return thumbnails;
     }
 
     public void setState(String state) {
         this.state = state;
     }
 
+    public int getTries() {
+        return tries;
+    }
+
     public void setTries(int tries) {
         this.tries = tries;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Thumbnails getThumbnails() {
+        return thumbnails;
+    }
+
+    public void setThumbnails(Thumbnails thumbnails) {
+        this.thumbnails = thumbnails;
     }
 }
