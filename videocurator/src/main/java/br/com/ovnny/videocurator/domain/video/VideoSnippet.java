@@ -36,7 +36,7 @@ public class VideoSnippet {
     @NotNull
     public int position;
 
-    @Size(max = 32)
+    @Size(max = 16)
     public String state;
 
     public int tries = 0;
