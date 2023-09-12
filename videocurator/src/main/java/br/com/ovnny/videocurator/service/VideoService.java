@@ -5,6 +5,7 @@ import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.domain.video.State;
 import br.com.ovnny.videocurator.domain.video.VideoSnipet;
 import br.com.ovnny.videocurator.exception.PlaylistException;
+import br.com.ovnny.videocurator.exception.PlaylistNotFoundException;
 import br.com.ovnny.videocurator.repository.PlaylistRepository;
 import br.com.ovnny.videocurator.utils.ParamExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,11 @@ public class VideoService {
         repository.save(newPlaylist);
 
         return newPlaylist;
+    }
+
+    public PlaylistPreviewResponse getPlaylist(String id) {
+        return repository.findById(id).orElseThrow(() ->
+                new PlaylistNotFoundException("A playlist informada não existe", HttpStatus.NOT_FOUND)
+        );
     }
 }

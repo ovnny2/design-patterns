@@ -8,6 +8,7 @@ import java.util.List;
 public class PlaylistClientResponse {
     public String kind;
     public String etag;
+    public String nextPageToken;
     public List<PlaylistItem> items;
     public ContentDetails contentDetails;
 
@@ -17,6 +18,10 @@ public class PlaylistClientResponse {
 
     public String getEtag() {
         return etag;
+    }
+
+    public String getNextPageToken() {
+        return nextPageToken;
     }
 
     public List<PlaylistItem> getItems() {

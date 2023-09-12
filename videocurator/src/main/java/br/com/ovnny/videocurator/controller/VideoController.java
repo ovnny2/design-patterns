@@ -4,12 +4,10 @@ import br.com.ovnny.videocurator.domain.PlaylistRequest;
 import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.service.VideoService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
@@ -25,10 +23,16 @@ public class VideoController {
     }
 
     @PostMapping("/playlists")
-    public ResponseEntity<PlaylistPreviewResponse> getPlaylistItems(@RequestBody @Valid PlaylistRequest request) {
+    public ResponseEntity<PlaylistPreviewResponse> createPlaylist(@RequestBody @Valid PlaylistRequest request) {
         var response = (PlaylistPreviewResponse) service.createPlaylist(request.getPlaylistUrl());
         URI path = URI.create("/v1/playlists/" + response.playlistId);
 
         return ResponseEntity.created(path).body(response);
+    }
+
+    @GetMapping("/playlists/{id}")
+    public ResponseEntity<PlaylistPreviewResponse> getPlaylist(@Valid @Size(max = 32) @PathVariable("id") String id) {
+        var playlist = service.getPlaylist(id);
+        return ResponseEntity.ok().body(playlist);
     }
 }

@@ -1,14 +1,14 @@
 package br.com.ovnny.videocurator.domain.playlist;
 
 public class Thumbnails {
-    public Thumbnail defaultThumbnail;
+    public Thumbnail default1;
     public Thumbnail medium;
     public Thumbnail high;
     public Thumbnail standard;
     public Thumbnail maxres;
 
-    public Thumbnail getDefaultThumbnail() {
-        return defaultThumbnail;
+    public Thumbnail getDefault1() {
+        return default1;
     }
 
     public Thumbnail getMedium() {
@@ -27,8 +27,8 @@ public class Thumbnails {
         return maxres;
     }
 
-    private void setDefaultThumbnail(Thumbnail defaultThumbnail) {
-        this.defaultThumbnail = defaultThumbnail;
+    private void setDefault1(Thumbnail default1) {
+        this.default1 = default1;
     }
 
     private void setMedium(Thumbnail medium) {

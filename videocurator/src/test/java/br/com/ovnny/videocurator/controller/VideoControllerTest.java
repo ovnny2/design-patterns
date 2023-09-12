@@ -60,7 +60,7 @@ class VideoControllerTest {
 
         when(videoService.createPlaylist(validRequest.getPlaylistUrl())).thenReturn(mockResponse);
 
-        var expectedResult = videoController.getPlaylistItems(validRequest);
+        var expectedResult = videoController.createPlaylist(validRequest);
 
         assertEquals(mockResponse, expectedResult.getBody());
         assertEquals(HttpStatus.CREATED, expectedResult.getStatusCode());
