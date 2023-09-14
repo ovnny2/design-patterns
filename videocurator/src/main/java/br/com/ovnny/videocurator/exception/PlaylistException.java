@@ -10,4 +10,13 @@ public class PlaylistException extends IllegalArgumentException {
         super(message);
         this.status = status;
     }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
 }
