@@ -6,6 +6,7 @@ import br.com.ovnny.videocurator.domain.PlaylistClientResponse;
 import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.domain.video.State;
 import br.com.ovnny.videocurator.domain.video.VideoSnippet;
+import br.com.ovnny.videocurator.exception.PlaylistException;
 import br.com.ovnny.videocurator.repository.PlaylistRepository;
 import br.com.ovnny.videocurator.utils.ParamExtractor;
 import com.fasterxml.jackson.core.JsonParser;
@@ -16,16 +17,18 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -53,7 +56,7 @@ class VideoServiceTest {
 
     @Test
     @DisplayName("Should return a PlaylistViewResponse given a valid youtube playlist url")
-    void createPlaylist() throws IOException {
+    void createPlaylist() {
 
         var playlistId = ParamExtractor
                 .extractPlaylistId("https://www.youtube.com/playlist?list=PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q");
@@ -73,6 +76,30 @@ class VideoServiceTest {
         assertEquals(result.getPlaylist().size(), expected.getPlaylist().size());
         assertEquals(result.getPlaylist().get(new Random().nextInt(0, videoSnippets.size())).getState(), String.valueOf(State.NOT_PROCESSED));
         assertTrue(result instanceof PlaylistPreviewResponse);
+    }
+
+    @Test
+    @DisplayName("Should throw PlaylistException when the given playlist already exists")
+    public void testCreatePlaylistWithExistingPlaylist() {
+        String url = "https://www.youtube.com/playlist?list=PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q";
+        String existingPlaylistId = "PLjAku6QgtOCcCHqGD5JJX-qBdYL6g8C0q";
+
+        PlaylistClientResponse playlistStub = getPlaylistClientResponseStub();
+
+        List<VideoSnippet> playlistPreviewResponseMock = playlistStub.getItems().stream()
+                .map(item -> new VideoSnippet(item.getSnippet(), State.NOT_PROCESSED))
+                .toList();
+
+        when(playlistRepository.findById(existingPlaylistId))
+                .thenReturn(Optional.of(new PlaylistPreviewResponse(existingPlaylistId, playlistPreviewResponseMock)));
+
+        PlaylistException exception = assertThrows(PlaylistException.class, () -> videoService.createPlaylist(url));
+
+        HttpStatus expectedHttpStatus = HttpStatus.BAD_REQUEST;
+
+        assertEquals(expectedHttpStatus, exception.getStatus());
+
+        Mockito.verify(playlistRepository, times(1)).findById(existingPlaylistId);
     }
 
     private static PlaylistClientResponse getPlaylistClientResponseStub() {
