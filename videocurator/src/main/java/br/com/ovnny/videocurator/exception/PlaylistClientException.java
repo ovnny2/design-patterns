@@ -1,12 +1,12 @@
 package br.com.ovnny.videocurator.exception;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 
 public class PlaylistClientException extends RuntimeException {
     String message;
-    HttpStatus status;
+    HttpStatusCode status;
 
-    public PlaylistClientException(String message, HttpStatus status) {
+    public PlaylistClientException(String message, HttpStatusCode status) {
         this.message = message;
         this.status = status;
     }
@@ -16,7 +16,7 @@ public class PlaylistClientException extends RuntimeException {
         return message;
     }
 
-    public HttpStatus getStatus() {
+    public HttpStatusCode getStatus() {
         return status;
     }
 }

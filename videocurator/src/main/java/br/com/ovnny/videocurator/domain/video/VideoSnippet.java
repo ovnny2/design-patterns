@@ -2,6 +2,7 @@ package br.com.ovnny.videocurator.domain.video;
 
 import br.com.ovnny.videocurator.client.youtube.Snippet;
 import br.com.ovnny.videocurator.client.youtube.Thumbnails;
+import br.com.ovnny.videocurator.domain.playlist.PlaylistData;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -11,7 +12,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class VideoSnippet {
+public class VideoSnippet implements PlaylistData {
 
     @Id
     public String id;
@@ -22,12 +23,10 @@ public class VideoSnippet {
     @NotBlank
     public String videoOwnerChannelTitle;
 
-    @NotBlank
-    @Past
+    @NotBlank @Past
     public String publishedAt;
 
     @NotBlank
-    @Indexed
     public String channelId;
 
     @NotBlank
@@ -36,7 +35,7 @@ public class VideoSnippet {
     @NotNull
     public int position;
 
-    @Size(max = 16)
+    @Size(max = 16) @Indexed
     public String state;
 
     public int tries = 0;

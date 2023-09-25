@@ -1,6 +1,5 @@
 package br.com.ovnny.videocurator.client;
 
-import br.com.ovnny.videocurator.client.PlaylistClientResponse;
 import br.com.ovnny.videocurator.exception.PlaylistClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,7 +42,7 @@ public class YoutubeClient {
             return (PlaylistClientResponse) rawResponse.getBody();
 
         } catch (HttpServerErrorException | HttpClientErrorException exception) {
-            throw new PlaylistClientException("Não é possível processar uma playlist privada.", HttpStatus.BAD_REQUEST);
+            throw new PlaylistClientException("Não é possível processar uma playlist privada.", exception.getStatusCode());
         }
     }
 
