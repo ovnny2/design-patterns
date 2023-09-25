@@ -23,12 +23,10 @@ public class VideoSnippet implements PlaylistData {
     @NotBlank
     public String videoOwnerChannelTitle;
 
-    @NotBlank
-    @Past
+    @NotBlank @Past
     public String publishedAt;
 
     @NotBlank
-    @Indexed
     public String channelId;
 
     @NotBlank
@@ -37,7 +35,7 @@ public class VideoSnippet implements PlaylistData {
     @NotNull
     public int position;
 
-    @Size(max = 16)
+    @Size(max = 16) @Indexed
     public String state;
 
     public int tries = 0;

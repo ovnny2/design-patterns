@@ -3,11 +3,6 @@ package br.com.ovnny.videocurator.service;
 import br.com.ovnny.videocurator.client.PlaylistClientResponse;
 import br.com.ovnny.videocurator.client.YoutubeClient;
 import br.com.ovnny.videocurator.config.JsonStubLoader;
-import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
-import br.com.ovnny.videocurator.domain.video.State;
-import br.com.ovnny.videocurator.domain.video.VideoSnippet;
-import br.com.ovnny.videocurator.exception.PlaylistException;
-import br.com.ovnny.videocurator.repository.PlaylistRepository;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,28 +11,19 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class VideoServiceTest {
 
     @Mock
     private YoutubeClient youtubeClient;
-
-    @Mock
-    private PlaylistRepository playlistRepository;
 
     @InjectMocks
     private VideoService videoService;
