@@ -2,7 +2,7 @@ package br.com.ovnny.videocurator.service;
 
 import br.com.ovnny.videocurator.client.YoutubeClient;
 import br.com.ovnny.videocurator.config.JsonStubLoader;
-import br.com.ovnny.videocurator.domain.PlaylistClientResponse;
+import br.com.ovnny.videocurator.client.PlaylistClientResponse;
 import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.domain.video.State;
 import br.com.ovnny.videocurator.domain.video.VideoSnippet;

@@ -1,6 +1,6 @@
 package br.com.ovnny.videocurator.client;
 
-import br.com.ovnny.videocurator.domain.PlaylistClientResponse;
+import br.com.ovnny.videocurator.client.PlaylistClientResponse;
 import br.com.ovnny.videocurator.exception.PlaylistClientException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

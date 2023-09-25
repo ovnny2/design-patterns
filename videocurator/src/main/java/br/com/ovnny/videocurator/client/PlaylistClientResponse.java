@@ -1,7 +1,7 @@
-package br.com.ovnny.videocurator.domain;
+package br.com.ovnny.videocurator.client;
 
-import br.com.ovnny.videocurator.domain.playlist.PageInfo;
-import br.com.ovnny.videocurator.domain.playlist.PlaylistItem;
+import br.com.ovnny.videocurator.client.youtube.PageInfo;
+import br.com.ovnny.videocurator.client.youtube.PlaylistItem;
 
 import java.util.List;
 

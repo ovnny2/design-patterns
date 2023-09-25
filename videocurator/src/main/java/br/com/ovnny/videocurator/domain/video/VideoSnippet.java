@@ -1,7 +1,7 @@
 package br.com.ovnny.videocurator.domain.video;
 
-import br.com.ovnny.videocurator.domain.playlist.Snippet;
-import br.com.ovnny.videocurator.domain.playlist.Thumbnails;
+import br.com.ovnny.videocurator.client.youtube.Snippet;
+import br.com.ovnny.videocurator.client.youtube.Thumbnails;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;

@@ -1,4 +1,4 @@
-package br.com.ovnny.videocurator.domain.playlist;
+package br.com.ovnny.videocurator.client.youtube;
 
 public class PlaylistItem {
     public String kind;

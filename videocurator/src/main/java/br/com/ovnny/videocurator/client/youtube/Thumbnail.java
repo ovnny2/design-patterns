@@ -1,4 +1,4 @@
-package br.com.ovnny.videocurator.domain.playlist;
+package br.com.ovnny.videocurator.client.youtube;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

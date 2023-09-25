@@ -2,7 +2,7 @@ package br.com.ovnny.videocurator.controller;
 
 import br.com.ovnny.videocurator.domain.PlaylistPreviewResponse;
 import br.com.ovnny.videocurator.domain.PlaylistRequest;
-import br.com.ovnny.videocurator.domain.playlist.Thumbnails;
+import br.com.ovnny.videocurator.client.youtube.Thumbnails;
 import br.com.ovnny.videocurator.domain.video.VideoSnippet;
 import br.com.ovnny.videocurator.service.VideoService;
 import jakarta.validation.ConstraintViolation;
