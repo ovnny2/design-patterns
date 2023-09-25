@@ -2,6 +2,7 @@ package br.com.ovnny.videocurator.domain.video;
 
 import br.com.ovnny.videocurator.client.youtube.Snippet;
 import br.com.ovnny.videocurator.client.youtube.Thumbnails;
+import br.com.ovnny.videocurator.domain.playlist.PlaylistData;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -11,7 +12,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class VideoSnippet {
+public class VideoSnippet implements PlaylistData {
 
     @Id
     public String id;
